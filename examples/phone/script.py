@@ -44,7 +44,7 @@ from concordia.clocks import game_clock
 from concordia.environment import game_master
 from concordia.utils import html as html_lib
 
-sys.path.append("/Users/gayatrikrishnakumar/Desktop/concordia/concordia/language_model") # Changed the path to trigger logging
+sys.path.append("/Users/gayatrikrishnakumar/Desktop/concordia/concordia/language_model") # Changed the path to trigger logging, saved to prompts_and_outputs
 from gpt_model import GptLanguageModel
 
 

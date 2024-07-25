@@ -1,3 +1,4 @@
+# Modified code to include logging of prompts and responses
 import json
 from collections.abc import Collection, Sequence
 
@@ -157,24 +158,3 @@ class GptLanguageModel(language_model.LanguageModel):
            (f'Too many multiple choice attempts.\nLast attempt: {sample}, ' +
             f'extracted: {answer}')
        )
-
-
-
-
-# # Example usage to trigger the logging → used only to the test the file working on its own
-# if __name__ == "__main__":
-#    api_key = ""
-#    model_name = "gpt-4o"
-
-
-#    gpt_model = GptLanguageModel(api_key=api_key, model_name=model_name)
-
-
-#    prompt = "What is the capital of France?"
-#    output = gpt_model.sample_text(prompt)
-#    print(f"Output: {output}")
-
-
-#    responses = ["Paris", "London", "Berlin"]
-#    idx, response, debug = gpt_model.sample_choice(prompt, responses)
-#    print(f"Selected response: {response} (Index: {idx})")

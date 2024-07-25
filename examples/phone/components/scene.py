@@ -29,7 +29,7 @@ from concordia.thought_chains import thought_chains
 from concordia.typing import agent
 from concordia.typing import component
 
-sys.path.append("/Users/gayatrikrishnakumar/Desktop/concordia/concordia/typing") # no module called entity error
+sys.path.append("/Users/gayatrikrishnakumar/Desktop/concordia/concordia/typing") # Was getting a Module Not Found error for entity, resolved by changing the path
 import entity as entity_lib
 
 
