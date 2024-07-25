@@ -14,7 +14,10 @@
 
 """A GameMaster that simulates a player's interaction with their phone."""
 
+<<<<<<< HEAD
 import sys
+=======
+>>>>>>> origin/main
 import textwrap
 
 from concordia.agents import basic_agent
@@ -28,9 +31,13 @@ from concordia.language_model import language_model
 from concordia.thought_chains import thought_chains
 from concordia.typing import agent
 from concordia.typing import component
+<<<<<<< HEAD
 
 sys.path.append("/Users/gayatrikrishnakumar/Desktop/concordia/concordia/typing") # Was getting a Module Not Found error for entity, resolved by changing the path
 import entity as entity_lib
+=======
+import concordia.typing.entity as entity_lib
+>>>>>>> origin/main
 
 
 _PHONE_CALL_TO_ACTION = textwrap.dedent("""\

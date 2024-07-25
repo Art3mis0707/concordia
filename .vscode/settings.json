@@ -40,7 +40,11 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.codeActionsOnSave": {
+<<<<<<< HEAD
       "source.organizeImports": "explicit"
+=======
+      "source.organizeImports": true
+>>>>>>> origin/main
     }
   },
   "python.formatting.provider": "none",
