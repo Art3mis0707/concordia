@@ -14,8 +14,6 @@ from concordia.utils import sampling
 _MAX_MULTIPLE_CHOICE_ATTEMPTS = 20
 
 
-
-
 class GptLanguageModel(language_model.LanguageModel):
    """Language Model that uses OpenAI GPT models."""
 
@@ -27,7 +25,7 @@ class GptLanguageModel(language_model.LanguageModel):
        measurements: measurements_lib.Measurements | None = None,
        channel: str = language_model.DEFAULT_STATS_CHANNEL,
        log_file: str = 'prompts_and_outputs.json',
-   ):
+   ): # log_file contains and all prompts and the responses of the model towards the prompts
        """Initializes the instance.
 
 
