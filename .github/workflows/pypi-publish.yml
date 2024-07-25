@@ -1,0 +1,102 @@
+# A workflow to publish releases to PyPi and TestPyPi.
+
+name: pypi-publish
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      run_tests:
+        description: 'Test sdist before upload'
+        type: boolean
+        default: true
+      upload_to_test_pypi:
+        description: 'Upload to Test PyPi'
+        type: boolean
+        default: false
+      upload_to_pypi:
+        description: 'Upload to PyPi'
+        type: boolean
+        default: false
+
+permissions: read-all
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Concordia
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+      - name: Show Python setup
+        run: |
+          python --version
+          pip list
+      - name: Build distribution
+        run: python setup.py sdist bdist_wheel
+      - name: Save artifact
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b
+        with:
+          name: dist
+          path: ./dist
+          retention-days: 1
+
+  test:
+    name: Test
+    needs: build
+    if: github.event_name == 'release' || inputs.run_tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Load artifact
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
+        with:
+          name: dist
+          path: ./dist
+      - name: Set up Python
+        uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade setuptools
+          pip install pytest-xdist
+      - name: Install source distribution
+        run: |
+          pip install dist/*.tar.gz
+          pip list
+      - name: Test source distribution
+        run: |
+          pytest -n auto --pyargs concordia
+
+  publish:
+    name: Publish
+    needs: test
+    if: ${{ ! failure() }}
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/gdm-concordia
+    permissions:
+      id-token: write
+    timeout-minutes: 10
+    steps:
+      - name: Load artifact
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
+        with:
+          name: dist
+          path: ./dist
+      - name: Publish to TestPyPI
+        if: github.event_name == 'release' || inputs.upload_to_test_pypi
+        uses: pypa/gh-action-pypi-publish@ec4db0b4ddc65acdf4bff5fa45ac92d78b56bdf0
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          verbose: true
+      - name: Publish to PyPI
+        if: github.event_name == 'release' || inputs.upload_to_pypi
+        uses: pypa/gh-action-pypi-publish@ec4db0b4ddc65acdf4bff5fa45ac92d78b56bdf0
+        with:
+          verbose: true

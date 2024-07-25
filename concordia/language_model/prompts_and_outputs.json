@@ -1,0 +1,66 @@
+[
+  {
+    "prompt": "What is the capital of France?",
+    "output": "The capital of France is Paris."
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  },
+  {
+    "prompt": "What is the capital of France?\nRespond EXACTLY with one of the following strings:\nParis\nLondon\nBerlin.",
+    "output": "Paris"
+  }
+]
